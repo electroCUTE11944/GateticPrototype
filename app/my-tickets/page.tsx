@@ -27,7 +27,7 @@ const userTickets = [
   {
     id: "2",
     eventId: "2",
-    eventTitle: "Choral Exchange 8",
+    eventTitle: "Choral Exchange 6",
     society: "Music Society",
     date: "2024-03-22",
     time: "18:00",

@@ -39,6 +39,7 @@ const adminEvents = [
     status: "active",
     attendees: 158,
     revenue: 3950,
+    image: "/images/alohafes2024.jpeg",
     documents: [
       {
         id: "1",
@@ -56,7 +57,7 @@ const adminEvents = [
   },
   {
     id: "2",
-    title: "Choral Exchange 8",
+    title: "Choral Exchange 6",
     society: "Music Society",
     date: "2024-03-22",
     time: "18:00",
@@ -64,6 +65,7 @@ const adminEvents = [
     status: "active",
     attendees: 244,
     revenue: 3660,
+    image: "/images/ce6.jpg",
     documents: [
       {
         id: "3",
@@ -99,14 +101,14 @@ const documents = [
   {
     id: "3",
     name: "Sound Equipment List.pdf",
-    event: "Choral Exchange 8",
+    event: "Choral Exchange 6",
     status: "approved",
     uploadDate: "2024-02-18",
   },
   {
     id: "4",
     name: "Artist Contracts.pdf",
-    event: "Choral Exchange 8",
+    event: "Choral Exchange 6",
     status: "approved",
     uploadDate: "2024-02-25",
   },
@@ -266,6 +268,13 @@ export default function AdminDashboard() {
             <div className="grid gap-6">
               {adminEvents.map((event) => (
                 <Card key={event.id} className="bg-white dark:bg-gray-800">
+                  <div className="relative">
+                    <img
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div>
