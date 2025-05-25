@@ -200,7 +200,7 @@ export default function EventDetails() {
               <CardHeader>
                 <div className="flex justify-between items-center">
                   <CardTitle className="text-2xl">
-                    {event.price === 0 ? "Free" : `$${event.price}`}
+                    {event.price === 0 ? "Free" : `RM${event.price}`}
                   </CardTitle>
                   <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                     {event.status}

@@ -1,14 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ArrowLeft, Plus, Trash2 } from "lucide-react"
-import Link from "next/link"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ArrowLeft, Plus, Trash2 } from "lucide-react";
+import Link from "next/link";
 
 export default function CreateEvent() {
   const [seatLayout, setSeatLayout] = useState({
@@ -17,21 +29,25 @@ export default function CreateEvent() {
     vipRows: 2,
     regularPrice: 25,
     vipPrice: 50,
-  })
+  });
 
-  const [documents, setDocuments] = useState([{ id: 1, name: "", required: false }])
+  const [documents, setDocuments] = useState([
+    { id: 1, name: "", required: false },
+  ]);
 
   const addDocument = () => {
-    setDocuments([...documents, { id: Date.now(), name: "", required: false }])
-  }
+    setDocuments([...documents, { id: Date.now(), name: "", required: false }]);
+  };
 
   const removeDocument = (id: number) => {
-    setDocuments(documents.filter((doc) => doc.id !== id))
-  }
+    setDocuments(documents.filter((doc) => doc.id !== id));
+  };
 
   const updateDocument = (id: number, field: string, value: any) => {
-    setDocuments(documents.map((doc) => (doc.id === id ? { ...doc, [field]: value } : doc)))
-  }
+    setDocuments(
+      documents.map((doc) => (doc.id === id ? { ...doc, [field]: value } : doc))
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 dark:from-gray-900 dark:to-gray-800">
@@ -44,7 +60,9 @@ export default function CreateEvent() {
             </Link>
           </Button>
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Create New Event</h1>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+              Create New Event
+            </h1>
             <p className="text-gray-600 dark:text-gray-300">
               Set up your event details, seating, and document requirements
             </p>
@@ -81,7 +99,11 @@ export default function CreateEvent() {
 
               <div className="space-y-2">
                 <Label htmlFor="description">Description</Label>
-                <Textarea id="description" placeholder="Describe your event" rows={4} />
+                <Textarea
+                  id="description"
+                  placeholder="Describe your event"
+                  rows={4}
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -132,7 +154,9 @@ export default function CreateEvent() {
           <Card className="bg-white dark:bg-gray-800">
             <CardHeader>
               <CardTitle>Seating Layout</CardTitle>
-              <CardDescription>Configure your venue seating arrangement</CardDescription>
+              <CardDescription>
+                Configure your venue seating arrangement
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
@@ -142,7 +166,12 @@ export default function CreateEvent() {
                     id="rows"
                     type="number"
                     value={seatLayout.rows}
-                    onChange={(e) => setSeatLayout({ ...seatLayout, rows: Number.parseInt(e.target.value) })}
+                    onChange={(e) =>
+                      setSeatLayout({
+                        ...seatLayout,
+                        rows: Number.parseInt(e.target.value),
+                      })
+                    }
                   />
                 </div>
                 <div className="space-y-2">
@@ -151,7 +180,12 @@ export default function CreateEvent() {
                     id="seatsPerRow"
                     type="number"
                     value={seatLayout.seatsPerRow}
-                    onChange={(e) => setSeatLayout({ ...seatLayout, seatsPerRow: Number.parseInt(e.target.value) })}
+                    onChange={(e) =>
+                      setSeatLayout({
+                        ...seatLayout,
+                        seatsPerRow: Number.parseInt(e.target.value),
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -162,18 +196,28 @@ export default function CreateEvent() {
                   id="vipRows"
                   type="number"
                   value={seatLayout.vipRows}
-                  onChange={(e) => setSeatLayout({ ...seatLayout, vipRows: Number.parseInt(e.target.value) })}
+                  onChange={(e) =>
+                    setSeatLayout({
+                      ...seatLayout,
+                      vipRows: Number.parseInt(e.target.value),
+                    })
+                  }
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="regularPrice">Regular Seat Price ($)</Label>
+                  <Label htmlFor="regularPrice">Regular Seat Price (RM)</Label>
                   <Input
                     id="regularPrice"
                     type="number"
                     value={seatLayout.regularPrice}
-                    onChange={(e) => setSeatLayout({ ...seatLayout, regularPrice: Number.parseInt(e.target.value) })}
+                    onChange={(e) =>
+                      setSeatLayout({
+                        ...seatLayout,
+                        regularPrice: Number.parseInt(e.target.value),
+                      })
+                    }
                   />
                 </div>
                 <div className="space-y-2">
@@ -182,7 +226,12 @@ export default function CreateEvent() {
                     id="vipPrice"
                     type="number"
                     value={seatLayout.vipPrice}
-                    onChange={(e) => setSeatLayout({ ...seatLayout, vipPrice: Number.parseInt(e.target.value) })}
+                    onChange={(e) =>
+                      setSeatLayout({
+                        ...seatLayout,
+                        vipPrice: Number.parseInt(e.target.value),
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -191,17 +240,24 @@ export default function CreateEvent() {
               <div className="border rounded-lg p-4 bg-gray-50 dark:bg-gray-700">
                 <h4 className="font-semibold mb-3">Seating Preview</h4>
                 <div className="space-y-1">
-                  <div className="text-center text-sm text-gray-600 dark:text-gray-300 mb-2">STAGE</div>
+                  <div className="text-center text-sm text-gray-600 dark:text-gray-300 mb-2">
+                    STAGE
+                  </div>
                   {Array.from({ length: seatLayout.rows }, (_, rowIndex) => (
                     <div key={rowIndex} className="flex justify-center gap-1">
-                      {Array.from({ length: seatLayout.seatsPerRow }, (_, seatIndex) => (
-                        <div
-                          key={seatIndex}
-                          className={`w-3 h-3 rounded-sm ${
-                            rowIndex < seatLayout.vipRows ? "bg-yellow-400" : "bg-blue-400"
-                          }`}
-                        />
-                      ))}
+                      {Array.from(
+                        { length: seatLayout.seatsPerRow },
+                        (_, seatIndex) => (
+                          <div
+                            key={seatIndex}
+                            className={`w-3 h-3 rounded-sm ${
+                              rowIndex < seatLayout.vipRows
+                                ? "bg-yellow-400"
+                                : "bg-blue-400"
+                            }`}
+                          />
+                        )
+                      )}
                     </div>
                   ))}
                   <div className="flex justify-center gap-4 mt-3 text-xs">
@@ -223,36 +279,53 @@ export default function CreateEvent() {
           <Card className="bg-white dark:bg-gray-800 lg:col-span-2">
             <CardHeader>
               <CardTitle>Document Requirements</CardTitle>
-              <CardDescription>Specify documents that attendees need to upload</CardDescription>
+              <CardDescription>
+                Specify documents that attendees need to upload
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {documents.map((doc, index) => (
-                <div key={doc.id} className="flex items-center gap-4 p-4 border rounded-lg">
+                <div
+                  key={doc.id}
+                  className="flex items-center gap-4 p-4 border rounded-lg"
+                >
                   <div className="flex-1">
                     <Input
                       placeholder="Document name (e.g., Student ID, Medical Certificate)"
                       value={doc.name}
-                      onChange={(e) => updateDocument(doc.id, "name", e.target.value)}
+                      onChange={(e) =>
+                        updateDocument(doc.id, "name", e.target.value)
+                      }
                     />
                   </div>
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
                       checked={doc.required}
-                      onChange={(e) => updateDocument(doc.id, "required", e.target.checked)}
+                      onChange={(e) =>
+                        updateDocument(doc.id, "required", e.target.checked)
+                      }
                       className="rounded"
                     />
                     <Label className="text-sm">Required</Label>
                   </div>
                   {documents.length > 1 && (
-                    <Button variant="outline" size="icon" onClick={() => removeDocument(doc.id)}>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => removeDocument(doc.id)}
+                    >
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   )}
                 </div>
               ))}
 
-              <Button variant="outline" onClick={addDocument} className="w-full">
+              <Button
+                variant="outline"
+                onClick={addDocument}
+                className="w-full"
+              >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Document Requirement
               </Button>
@@ -269,5 +342,5 @@ export default function CreateEvent() {
         </div>
       </div>
     </div>
-  )
+  );
 }

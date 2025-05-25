@@ -164,7 +164,7 @@ export default function Dashboard() {
 
                 <div className="flex justify-between items-center pt-4">
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                    {event.price === 0 ? "Free" : `$${event.price}`}
+                    {event.price === 0 ? "Free" : `RM${event.price}`}
                   </div>
                   <Button asChild>
                     <Link href={`/event/${event.id}`}>View Details</Link>

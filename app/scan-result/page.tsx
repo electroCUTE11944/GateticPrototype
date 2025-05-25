@@ -37,7 +37,7 @@ const ticketData = {
     seats: ["A5", "A6"],
     total: 52.5,
     holderName: "Simon Chock",
-    studentId: "STU123456",
+    studentId: "20AM05528",
     status: "valid",
     checkInTime: null,
     ticketId: "1234567890",
